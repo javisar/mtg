@@ -8,7 +8,7 @@ from mtg.ml.display import build_decks
 from mtg.ml.utils import load_model
 
 
-def main():
+def main(FLAGS):
     with open(FLAGS.expansion_fname, "rb") as f:
         expansion = pickle.load(f)
 
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     )
 
     FLAGS, unparsed = parser.parse_known_args()
-    main()
+    main(FLAGS)

@@ -19,10 +19,10 @@ if __name__ == "__main__":
         help="name of magic expansion corresponding to data files",
     )
     parser.add_argument(
-        "--game_data", type=str, default="/home/parker/Documents/Github/mtg/data/game_data_public.SNC.PremierDraft.csv", help="path to bo1 game data"
+        "--game_data", type=str, default=None, help="path to bo1 game data"
     )
     parser.add_argument(
-        "--draft_data", type=str, default="/home/parker/Documents/Github/mtg/data/draft_data_public.SNC.PremierDraft.csv", help="path to bo1 draft data"
+        "--draft_data", type=str, default=None, help="path to bo1 draft data"
     )
     parser.add_argument(
         "--expansion_fname",

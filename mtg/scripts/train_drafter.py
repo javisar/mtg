@@ -11,7 +11,7 @@ import pandas as pd
 # tf.debugging.set_log_device_placement(True)
 
 
-def main():
+def main(FLAGS):
     
     
     
@@ -192,4 +192,4 @@ if __name__ == "__main__":
     )
 
     FLAGS, unparsed = parser.parse_known_args()
-    main()
+    main(FLAGS)

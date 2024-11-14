@@ -489,7 +489,35 @@ class BRO(Expansion):
         return types
 
 
-EXPANSIONS = [VOW, SNC, DMU, BRO]
+class MKM(Expansion):
+    def __init__(
+        self,
+        bo1=None,
+        bo3=None,
+        quick=None,
+        draft=None,
+        replay=None,
+        ml_data=True,
+        idx_to_name=None,
+    ):
+        super().__init__(
+            expansion="mkm",
+            bo1=bo1,
+            bo3=bo3,
+            quick=quick,
+            draft=draft,
+            replay=replay,
+            ml_data=ml_data,
+            idx_to_name=idx_to_name,
+        )
+
+    @property
+    def types(self):
+        types = super().types
+        return types
+
+
+EXPANSIONS = [VOW, SNC, DMU, BRO, MKM]
 
 
 def get_expansion_obj_from_name(expansion):

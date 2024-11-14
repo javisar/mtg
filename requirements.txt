@@ -6,3 +6,5 @@ jupyter
 matplotlib
 tensorflow
 tqdm
+pyarrow
+fastparquet

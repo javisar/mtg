@@ -26,6 +26,9 @@ def sort_cols_by_card_idxs(df, card_col_prefixes, cards):
     # reorder dataframe to abide by new column ordering
     #   this is just so df[self.deck_cols].to_numpy()
     #   yields a comparable matrix to df[self.sideboard_cols].to_numpy()
+    
+    df.columns = [col.split("//")[0].strip().lower() for col in df.columns] # it fails with keyerror in the next line if df columns are not sanitized like in other parts of the code
+
     df = df[column_order]
     return df
 

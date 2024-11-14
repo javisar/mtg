@@ -615,10 +615,12 @@ class DeckBuilder(tf.Module):
             #       hopefully this helps the model play worse two-drops when needed, which it
             #       is currently not great at (it definitely does it, but not enough)
             self.pred_curve_average = tf.reduce_mean(
-                tf.multiply(pred_built, tf.expand_dims(self.cmc_map[5:], 0)), axis=-1
+                #tf.multiply(pred_built, tf.expand_dims(self.cmc_map[5:], 0)), axis=-1
+                tf.multiply(pred_built, tf.expand_dims(self.cmc_map, 0)), axis=-1 # must include the first 5 if they are included in cards.py, otherwise shape error
             )
             self.true_curve_average = tf.reduce_mean(
-                tf.multiply(true_built, tf.expand_dims(self.cmc_map[5:], 0)), axis=-1
+                #tf.multiply(true_built, tf.expand_dims(self.cmc_map[5:], 0)), axis=-1
+                tf.multiply(true_built, tf.expand_dims(self.cmc_map, 0)), axis=-1 # must include the first 5 if they are included in cards.py, otherwise shape error
             )
             self.curve_incentive = tf.reduce_sum(abs(self.pred_curve_average - self.true_curve_average) * sample_weight)
         else:
